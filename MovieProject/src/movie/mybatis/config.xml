@@ -6,8 +6,6 @@
   <properties resource="movie/mybatis/db.properties"/>  
   <typeAliases>
       <typeAlias type="movie.model.MemberVO" alias="memberVO"/>
-      <typeAlias type="movie.model.MovieVO" alias="movieVO"/>
-      <typeAlias type="movie.model.ReviewVO" alias="reviewVO"/>
       
   </typeAliases>
   <environments default="development">
@@ -22,6 +20,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="movie/mybatis/MovieMapper.xml"/>
+      <mapper resource="movie/mybatis/MemberMapper.xml"/>
   </mappers>
 </configuration>

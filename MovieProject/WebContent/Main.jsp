@@ -79,6 +79,9 @@
 	   <div class="background_01"></div>
 	   <div class="background_02"></div>
 	   <div class="background_03"></div>
+	   <div class="background_04"></div>
+	   <div class="background_05"></div>
+	   <div class="background_06"></div>
    </div>
    
 </body>

@@ -7,26 +7,12 @@
     	
     	
     	<select id="loginMember" resultType="MemberVO">
-    	   select * from tbl_user where user_id= #{user_id} and password= #{password}
+    	   select * from tbl_member where member_id= #{member_id} and member_password= #{member_password}
     	</select>
-    	
-    	<select id="memberList" resultType="memberVO">
-    	   select idx,title,count,contents,writer,DATE_FORMAT(indate,'%Y-%m-%d') 
-    	   AS indate from tbl_board    	    
-    	</select>
-    	
-    	<insert id="memberInsert">
-    	    insert into tbl_board(title, contents, writer) 
-    	    values(#{title}, #{contents}, #{writer})    	    
+
+    	<insert id="signupMember">
+    	   insert into tbl_member (member_seq,member_id, member_password, member_name, member_age,
+    	    member_gender,member_phone, member_genre,admin_id) 
+			values (MEMBER_IDX.nextval,#{member_id}, #{member_password}, #{member_name}, #{member_age}, #{member_gender}, #{member_phone}, #{member_genre},#{admin_id})
     	</insert>
-    	
-    	<delete id="memberDelete">
-    	    delete from tbl_board where idx = #{idx}
-    	</delete>
-  	
-    	
-    	
-    	<update id="boardUpdate" >
-    	    update tbl_board set title=#{title}, contents =#{contents} where idx =#{idx}    	   
-    	</update>
 </mapper>

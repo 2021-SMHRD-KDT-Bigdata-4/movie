@@ -36,6 +36,19 @@
         }
       }
     }
+    function signupFn(){
+    	var signData= $("#srm").serialize();
+    	alert(signData);
+  	   $.ajax({
+  	      url: "signup.go",
+  	      type:"post",
+  	      data : signData,
+  	      success:function(){ 
+  	         location.href="main.jsp"
+  	      },
+  	     error:function(){alert("error");}	      
+  	   });	   	
+     }
 </script>
 
 </head>
@@ -48,21 +61,23 @@
       </a>
 </div>
 
-<div class="signupform">
-   <a onclick="">sign up</a>
-</div>
-
-
 <div class="dropdown">
    <button onclick="dropbtn()" class="dropbtn"></button>
    <div id="myDropdown" class="dropdown-content">
      <a href="#">로맨스</a>
      <a href="#">액션</a>
      <a href="#">호러</a>
-   </div>+
+     <a href="#">코미디</a>
+     <a href="#">애니메이션</a>
+     <a href="#">드라마</a>
+     <a href="#">스릴러</a>
+     <a href="#">SF</a>
+     <a href="#">판타지</a>
+     <a href="#">다큐멘터리</a>
+     <a href="#">외국</a> 
+   </div>
  </div>
 </nav>
-
 
 <body>
    <div class="overlay"></div>
@@ -71,39 +86,36 @@
       <div class="background_02"></div>
       <div class="background_03"></div>
    </div>
-    <form action="index.html" method="post" class="signForm">
-      <h2>sign up</h2>
+   
+   
+    <form id="srm" name="srm"  method="post" class="signForm">
+      <h2>회원가입</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID">
+        <input type="text" class="id" placeholder="ID" name="id">
       </div>
       <div class="passForm">
-        <input type="text" class="pw" placeholder="PW">
+        <input type="password" class="pw" placeholder="PW" name="pw">
       </div>
       <div class="nameForm">
-        <input type="text" class="name" placeholder="이름">
+        <input type="text" class="name" placeholder="이름" name="name">
       </div>
       <div class="ageForm">
-        <input type="text" class="age" placeholder="나이">
+        <input type="text" class="age" placeholder="나이" name="age">
         </div>
       <div class="genderForm">
-        <input type="text" class="gender" placeholder="성별">
+        <input type="text" class="gender" placeholder="성별" name="gender">
       </div>
       <div class="phoneForm">
-        <input type="text" class="phone" placeholder="전화번호">
+        <input type="text" class="phone" placeholder="전화번호" name="phone">
       </div>
       <div class="genreForm">
-        <input type="text" class="genre" placeholder="선호장르">
+        <input type="text" class="genre" placeholder="선호장르" name="genre">
       </div>
-      <button type="button" class="btn" onclick="button()">
-        SIGN UP
+      <button type="button" class="btn" onclick="signupFn()">
+      	회원등록
       </button>
-      <script>
-         let button = () => {
-           alert('signup Button !')
-        }
-      </script>
       <div class="bottomText">
-          회원가입
+          	회원가입
       </div>
     </form>
    
