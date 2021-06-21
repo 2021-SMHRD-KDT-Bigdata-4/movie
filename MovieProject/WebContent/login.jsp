@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/reset.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/loginstyle.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.1.12.4.js"></script>
 <script type="text/javascript"
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
@@ -49,7 +49,7 @@
 </div>
 
 <div class="loginform">
-   <a href="login.jsp">login</a>
+   <a onclick="">login</a>
 </div>
 
 
@@ -59,14 +59,6 @@
      <a href="#">로맨스</a>
      <a href="#">액션</a>
      <a href="#">호러</a>
-     <a href="#">코미디</a>
-     <a href="#">애니메이션</a>
-     <a href="#">드라마</a>
-     <a href="#">스릴러</a>
-     <a href="#">SF</a>
-     <a href="#">판타지</a>
-     <a href="#">다큐멘터리</a>
-     <a href="#">외국</a>    
    </div>
  </div>
 </nav>
@@ -75,11 +67,31 @@
 <body>
    <div class="overlay"></div>
    <div class="slider">
-   
 	   <div class="background_01"></div>
 	   <div class="background_02"></div>
 	   <div class="background_03"></div>
    </div>
+    <form action="index.html" method="post" class="loginForm">
+      <h2>Login</h2>
+      <div class="idForm">
+        <input type="text" class="id" placeholder="ID">
+      </div>
+      <div class="passForm">
+        <input type="password" class="pw" placeholder="PW">
+      </div>
+      <button type="button" class="btn" onclick="button()">
+        LOG IN
+      </button>
+      <script>
+      	let button = () => {
+        	alert('login Button !')
+        }
+      </script>
+      <div class="bottomText">
+        아이디가 없으신가요? <a href="#">회원가입</a>
+      </div>
+    </form>
+   
    
 </body>
 
