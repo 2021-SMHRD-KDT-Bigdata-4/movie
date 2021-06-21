@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="movie/mybatis/db.properties"/>  
+  <typeAliases>
+      <typeAlias type="movie.model.MemberVO" alias="memberVO"/>
+      <typeAlias type="movie.model.MovieVO" alias="movieVO"/>
+      <typeAlias type="movie.model.ReviewVO" alias="reviewVO"/>
+      
+  </typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="movie/mybatis/MovieMapper.xml"/>
+  </mappers>
+</configuration>
