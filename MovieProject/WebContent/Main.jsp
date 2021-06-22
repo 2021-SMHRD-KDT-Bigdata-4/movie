@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 
 <!DOCTYPE html>
 <html>
@@ -36,6 +38,31 @@
         }
       }
     }
+    function dropbtn1() {
+        document.getElementById("myDropdown1").classList.toggle("show");
+      }
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn1')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content1");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    function logoutFn(){
+ 	   $.ajax({
+ 	      url: "logout.go",
+ 	      type:"get",
+ 	      success:function(){ 
+ 	         location.href="Main.jsp"
+ 	      },
+ 	      error:function(){alert("error");}	      
+ 	   });	   
+ 	}
 </script>
 
 </head>
@@ -48,10 +75,21 @@
       </a>
 </div>
 
-<div class="loginform">
-   <a href="login.jsp">login</a>
-</div>
-
+<div class="loginform">	
+	<c:choose>
+	   <c:when test="${sessionScope.MemberVO==null}">
+	   		<a href="login.jsp">login</a>
+	   </c:when>
+	   <c:otherwise>
+	   		<div class="dropdown">
+	  			<button  onclick="dropbtn1()" class="dropbtn1">${sessionScope.MemberVO.member_name} </button>
+	  			<div id="myDropdown1" class="dropdown-content">   
+	    			<input type="button" value="로그아웃" onclick="logoutFn()" class="btn btn-info btn-sm">
+	  			</div>
+			</div>			 
+	   	</c:otherwise>  
+	</c:choose>
+</div> 
 
 <div class="dropdown">
    <button onclick="dropbtn()" class="dropbtn"></button>

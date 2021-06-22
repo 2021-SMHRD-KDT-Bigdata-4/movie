@@ -43,7 +43,8 @@
   	      url: "signup.go",
   	      type:"post",
   	      data : signData,
-  	      success:function(){ 
+  	      success:function(data){
+  	    	 consol.log(data);
   	         location.href="main.jsp"
   	      },
   	     error:function(){alert("error");}	      
@@ -63,8 +64,10 @@
 
 <div class="dropdown">
    <button onclick="dropbtn()" class="dropbtn"></button>
-   <div id="myDropdown" class="dropdown-content">
+   <div id="myDropdown" 
+   class="dropdown-content">
      <a href="#">로맨스</a>
+     
      <a href="#">액션</a>
      <a href="#">호러</a>
      <a href="#">코미디</a>
@@ -91,25 +94,25 @@
     <form id="srm" name="srm"  method="post" class="signForm">
       <h2>회원가입</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID" name="id">
+        <input type="text" class="id" placeholder="ID" name="member_id">
       </div>
       <div class="passForm">
-        <input type="password" class="pw" placeholder="PW" name="pw">
+        <input type="password" class="pw" placeholder="PW" name="member_password">
       </div>
       <div class="nameForm">
-        <input type="text" class="name" placeholder="이름" name="name">
+        <input type="text" class="name" placeholder="이름" name="member_name">
       </div>
       <div class="ageForm">
-        <input type="text" class="age" placeholder="나이" name="age">
+        <input type="text" class="age" placeholder="나이" name="member_age">
         </div>
       <div class="genderForm">
-        <input type="text" class="gender" placeholder="성별" name="gender">
+        <input type="text" class="gender" placeholder="성별" name="member_gender">
       </div>
       <div class="phoneForm">
-        <input type="text" class="phone" placeholder="전화번호" name="phone">
+        <input type="text" class="phone" placeholder="전화번호" name="member_phone">
       </div>
       <div class="genreForm">
-        <input type="text" class="genre" placeholder="선호장르" name="genre">
+        <input type="text" class="genre" placeholder="선호장르" name="member_genre">
       </div>
       <button type="button" class="btn" onclick="signupFn()">
       	회원등록

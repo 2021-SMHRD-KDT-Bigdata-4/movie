@@ -99,6 +99,14 @@ a {
    border: none;
    cursor: pointer;
  }
+ .dropbtn1{
+	color: white;
+   padding: 30px;
+   font-size: 30px;
+   border: none;
+   cursor: pointer;
+   outline:none;
+ }
  .dropdown-content {
    display: none;
    position: absolute;

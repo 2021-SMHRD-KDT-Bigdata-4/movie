@@ -2,8 +2,12 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
-  <properties resource="movie/mybatis/db.properties"/>  
+  <properties resource="movie/mybatis/db.properties"/>
+  <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+  </settings>
   <typeAliases>
       <typeAlias type="movie.model.MemberVO" alias="memberVO"/>
       
@@ -22,4 +26,5 @@
   <mappers>
       <mapper resource="movie/mybatis/MemberMapper.xml"/>
   </mappers>
+
 </configuration>
