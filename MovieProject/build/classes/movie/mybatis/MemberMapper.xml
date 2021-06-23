@@ -9,10 +9,26 @@
     	<select id="loginMember" resultType="MemberVO">
     	   select * from tbl_member where member_id= #{member_id} and member_password= #{member_password}
     	</select>
+    	
+		<select id="checkMember" resultType="int">		
+			select count(*) from tbl_member where member_id = #{member_id}		
+		</select> 
 
     	<insert id="signupMember">
     	   insert into tbl_member (member_seq,member_id, member_password, member_name, member_age,
     	    member_gender,member_phone, member_genre,admin_id) 
 			values (MEMBER_IDX.nextval,#{member_id}, #{member_password}, #{member_name}, #{member_age}, #{member_gender}, #{member_phone}, #{member_genre},#{admin_id})
     	</insert>
+    	
+    	
+<!--     	<update id="updateMember">
+	    	update tbl_member set member_id = #{member_id}, member_password = #{member_password},member_name = #{member_name}, 
+	    	member_age = #{member_age}, member_gender = #{member_gender}, member_phone = #{member_phone}, member_genre = #{member_genre}, 
+	    	admin_id = #{admin_id}, where member_seq = MEMBER_IDX.nextval
+		</update>
+		
+    	<delete id="deleteMember">
+    	    delete from tbl_member where member_seq = MEMBER_IDX.nextval
+    	</delete> -->
+    	
 </mapper>

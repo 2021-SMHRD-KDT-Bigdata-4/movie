@@ -85,6 +85,7 @@
 	  			<button  onclick="dropbtn1()" class="dropbtn1">${sessionScope.MemberVO.member_name} </button>
 	  			<div id="myDropdown1" class="dropdown-content">   
 	    			<input type="button" value="로그아웃" onclick="logoutFn()" class="btn btn-info btn-sm">
+	    			<input type="button" value="회원수정" onclick="logoutFn()" class="btn btn-info btn-sm">
 	  			</div>
 			</div>			 
 	   	</c:otherwise>  

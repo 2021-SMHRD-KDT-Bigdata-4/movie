@@ -50,6 +50,50 @@
   	     error:function(){alert("error");}	      
   	   });	   	
      }
+    
+    $(function(){
+    	//아이디 중복체크
+    	$(".msg2").hide();
+      	$(".msg1").hide();
+    	   $('#member_id').blur(function(){
+    	        $.ajax({
+    	         url:"check.go",
+    		     type:"post", 		     
+    		     data:{ "member_id":$('#member_id').val()
+    		    },
+    		     success:function(data){	
+    		            if(parseInt(data)==1){
+    		               $(".msg2").show();
+    		               $(".msg1").hide();
+    		           	}else{
+    		           		$(".msg1").show();
+    		           		$(".msg2").hide();
+    		            }
+    		         },
+    		         error:function(){alert("error");}	
+    		    });
+    	     });
+    	});
+    	
+
+     $(function(){
+    	//비밀번호 확인
+    	$(".pw1").hide();
+    	$(".pw2").hide();
+    		$("#member_password_check").keyup(function(){
+    		   var member_password = $("#member_password").val() ;
+    		   var member_password_check = $("#member_password_check").val();
+    		   if(member_password != "" || member_password_check != ""){
+    			   if(member_password==member_password_check){
+    				    $(".pw1").show();
+    			    	$(".pw2").hide();
+    			   }else{
+    				    $(".pw1").hide();
+    			    	$(".pw2").show();
+    			   }    			  
+    		   }    		    	
+    		});  	   
+    	}); 
 </script>
 
 </head>
@@ -66,8 +110,7 @@
    <button onclick="dropbtn()" class="dropbtn"></button>
    <div id="myDropdown" 
    class="dropdown-content">
-     <a href="#">로맨스</a>
-     
+     <a href="#">로맨스</a>     
      <a href="#">액션</a>
      <a href="#">호러</a>
      <a href="#">코미디</a>
@@ -94,10 +137,17 @@
     <form id="srm" name="srm"  method="post" class="signForm">
       <h2>회원가입</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID" name="member_id">
+        <input type="text" class="id" placeholder="아이디" name="member_id" id="member_id">
+        <span class="msg1">사용가능합니다.</span>
+        <span class="msg2">중복된 아이디 입니다.</span>
       </div>
       <div class="passForm">
-        <input type="password" class="pw" placeholder="PW" name="member_password">
+        <input type="password" class="pw" placeholder="비밀번호" name="member_password" id="member_password">
+      </div>
+      <div class="passForm">
+        <input type="password" class="pw" placeholder="비밀번호확인" name="member_password_check" id="member_password_check">
+      	<span class="pw1">비밀번호가 일치합니다.</span>
+        <span class="pw2">비밀번호가 일치하지 않습니다.</span>
       </div>
       <div class="nameForm">
         <input type="text" class="name" placeholder="이름" name="member_name">
