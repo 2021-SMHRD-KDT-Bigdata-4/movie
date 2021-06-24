@@ -38,14 +38,13 @@
     }
     function signupFn(){
     	var signData= $("#srm").serialize();
-    	alert(signData);
   	   $.ajax({
   	      url: "signup.go",
   	      type:"post",
   	      data : signData,
   	      success:function(data){
-  	    	 consol.log(data);
-  	         location.href="main.jsp"
+	    		alert("회원가입완료")
+	    		location.href="Main.jsp"; 
   	      },
   	     error:function(){alert("error");}	      
   	   });	   	
