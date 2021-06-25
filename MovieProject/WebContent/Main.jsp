@@ -137,7 +137,7 @@
  <div class="mainbutton">
  
   <input type="text" placeholder="영화이름을 검색해주세요  " id="movie_title">
-    <button type="submit"  onclick="searchBtn()" >검색</button>
+    <button type="button"  onclick="searchBtn()" >검색</button>
  </div>
 </form>
 
