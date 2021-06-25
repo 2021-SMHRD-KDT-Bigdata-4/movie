@@ -63,6 +63,27 @@
  	      error:function(){alert("error");}	      
  	   });	   
  	}
+    
+    function searchBtn() { 
+    	var movie_title = $("#movie_title").val();
+       	location.href="<c:url value='/search.go'/>?movie_title="+movie_title;
+    	
+    }
+	/*
+	function searchBtn() { 
+		var movie_title = $("#movie_title").val();	
+		$.ajax({
+		      url : "search.go",
+		      type: "post",
+		      data: {"movie_title":movie_title},
+		      dataType: "json",
+		      success: function(data){		    
+		    		  location.href="MovieList.jsp";
+		    	  },	    	  	    	    	      	  	      
+		      error: function() { alert("error");}   
+		   });	
+	}  
+	*/
 </script>
 
 </head>
@@ -75,7 +96,7 @@
       </a>
 </div>
 
-<div class="loginform">	
+ <div class="loginform">	
 	<c:choose>
 	   <c:when test="${sessionScope.MemberVO==null}">
 	   		<a href="login.jsp">login</a>
@@ -85,10 +106,11 @@
 	  			<button  onclick="dropbtn1()" class="dropbtn1">${sessionScope.MemberVO.member_name} </button>
 	  			<div id="myDropdown1" class="dropdown-content">   
 	    			<input type="button" value="로그아웃" onclick="logoutFn()" class="btn btn-info btn-sm">
+	    			<input type="button" value="회원수정" onclick="logoutFn()" class="btn btn-info btn-sm">
 	  			</div>
 			</div>			 
 	   	</c:otherwise>  
-	</c:choose>
+	</c:choose> 
 </div> 
 
 <div class="dropdown">
@@ -111,6 +133,24 @@
 
 
 <body>
+  <form method="post" >
+ <div class="mainbutton">
+ 
+  <input type="text" placeholder="영화이름을 검색해주세요  " id="movie_title">
+    <button type="submit"  onclick="searchBtn()" >검색</button>
+ </div>
+</form>
+
+	<div class="maintext"><p>
+	
+	안녕안녕 반가워요<br> 근데 영화검색기능 <br>리스트 언제  구현 할수있을까요
+	살려주세용 
+	
+	
+	</p>
+	
+	
+	</div>
    <div class="overlay"></div>
    <div class="slider">
    
@@ -120,8 +160,11 @@
 	   <div class="background_04"></div>
 	   <div class="background_05"></div>
 	   <div class="background_06"></div>
+		 
    </div>
    
+    
+    
 </body>
 
 </html>

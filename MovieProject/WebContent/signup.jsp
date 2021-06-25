@@ -50,6 +50,47 @@
   	     error:function(){alert("error");}	      
   	   });	   	
      }
+ // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
+	$("#member_id").blur(function() {
+		// id = "id_reg" / name = "userId"
+		var member_id = $('#member_id').val();
+		$.ajax({
+			url : '${pageContext.request.contextPath}/user/idCheck?userId='+ member_id,
+			type : 'get',
+			success : function(data) {
+				console.log("1 = 중복o / 0 = 중복x : "+ data);							
+				
+				if (data == 1) {
+						// 1 : 아이디가 중복되는 문구
+						$("#id_check").text("사용중인 아이디입니다 :p");
+						$("#id_check").css("color", "red");
+						$("#reg_submit").attr("disabled", true);
+					} else {
+						
+						if(idJ.test(member_id)){
+							// 0 : 아이디 길이 / 문자열 검사
+							$("#id_check").text("");
+							$("#reg_submit").attr("disabled", false);
+				
+						} else if(member_id == ""){
+							
+							$('#id_check').text('아이디를 입력해주세요 :)');
+							$('#id_check').css('color', 'red');
+							$("#reg_submit").attr("disabled", true);				
+							
+						} else {
+							
+							$('#id_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다 :) :)");
+							$('#id_check').css('color', 'red');
+							$("#reg_submit").attr("disabled", true);
+						}
+						
+					}
+				}, error : function() {
+						console.log("실패");
+				}
+			});
+		});
 </script>
 
 </head>
@@ -66,8 +107,7 @@
    <button onclick="dropbtn()" class="dropbtn"></button>
    <div id="myDropdown" 
    class="dropdown-content">
-     <a href="#">로맨스</a>
-     
+     <a href="#">로맨스</a>     
      <a href="#">액션</a>
      <a href="#">호러</a>
      <a href="#">코미디</a>
@@ -94,7 +134,8 @@
     <form id="srm" name="srm"  method="post" class="signForm">
       <h2>회원가입</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID" name="member_id">
+        <input type="text" class="id" placeholder="ID" name="member_id" id="member_id">
+        <div class="check_font" id="id_check"></div>
       </div>
       <div class="passForm">
         <input type="password" class="pw" placeholder="PW" name="member_password">
