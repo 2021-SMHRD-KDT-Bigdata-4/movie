@@ -22,9 +22,9 @@ public class MemberFrontController extends HttpServlet {
 		  request.setCharacterEncoding("utf-8");		
 		  String reqUrl=request.getRequestURI();		
 		  String cpath=request.getContextPath(); 
-		  System.out.println(cpath);
+		  //System.out.println(cpath);
 		  String command=reqUrl.substring(cpath.length());
-		  System.out.println(command);
+		  //System.out.println(command);
 		  
 		  //------------------------------------------
 		  HandlerMapping mappings =new HandlerMapping();

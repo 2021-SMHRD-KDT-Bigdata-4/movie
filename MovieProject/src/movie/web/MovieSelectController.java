@@ -41,7 +41,7 @@ public class MovieSelectController implements Controller {
 		try {
 			List<MovieVO> list=dao.selectMovie(movie_title);	
 			 request.setAttribute("list", list);
-			 System.out.println(list.get(0).getMovie_actor());
+		
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}	
