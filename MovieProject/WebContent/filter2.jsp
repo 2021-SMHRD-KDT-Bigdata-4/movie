@@ -19,23 +19,24 @@
 
 function submitbtn(){
 
-    location.href="<c:url value='/filter.go'/>";
+	 location.href="<c:url value='/filter2.go'/>";
 
 }
-function fi_btn(){
 
-    location.href="<c:url value='/filter2.go'/>";
 
-}
+
+
+
 
 </script>
 
     
     
     
-   <%-- <div class="wrapper">
-   <c:forEach var="vo" items="${list}">
-   <input type="checkbox" value="${vo.movie_seq}">
+	<div class="wrapper">
+	<form action="">
+	<c:forEach var="vo" items="${list}">
+	<input type="checkbox" value="${vo.movie_seq}">
         <div class="card" >
             <img src="${vo.movie_picture}">
             <div class="descriptions">
@@ -46,36 +47,14 @@ function fi_btn(){
             </div>
         </div>
         </c:forEach>
-        
-      <button type="submit">파이썬으로보내기</button>
-    </div> --%>
+        <button type="submit">파이썬으로보내기</button>
+        </form>
+      
+    </div>
     <form>
     <button class= "submitbutton" type="button" onclick="submitbtn()">제출</button>
     </form>
     
-    
-    <form action="http://127.0.0.1:5000/filter" method="POST">
-		   <div class="wrapper">
-   <c:forEach var="vo" items="${list}">
-    <input type="checkbox" value="${vo.movie_seq}" name="${vo.movie_title}">
-   
-   <%-- <input type="checkbox" value="${vo.movie_seq}" onclick="if(this.checked){this.form.submit()}"> --%>
-   <!-- <input type="checkbox" name="match" value="matchwithpairs" checked> -->
-        <div class="card" >
-            <img src="${vo.movie_picture}">
-            <div class="descriptions">
-                <h1>${vo.movie_title}</h1>
-                <p>${vo.movie_summary}</p>
-                <button>
-                    <i class="fab fa-youtube"></i>상세보기</button>
-            </div>
-        </div>
-        </c:forEach>
-        
-      
-    </div>
-		<button type="submit" class = "submittest" onclick="fi_btn">파이썬으로보내기</button>
-	</form>
     
 </body>
 </html>

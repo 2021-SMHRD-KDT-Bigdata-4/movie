@@ -1,4 +1,4 @@
-package movie.flask;
+package movie.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
