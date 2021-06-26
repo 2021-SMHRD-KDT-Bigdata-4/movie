@@ -66,6 +66,11 @@
  	      error:function(){alert("error");}	      
  	   });	   
  	}
+    function searchBtn() { 
+        var movie_title = $("#movie_title").val();
+           location.href="<c:url value='/search.go'/>?movie_title="+movie_title;
+        
+     }
     
 
 </script>
@@ -122,8 +127,8 @@
   <form method="post">
  <div class="mainbutton">
  
-  <input type="text" placeholder="영화이름을 검색해주세요">
-    <button type="button"  onclick="searchBtn()" id="movie_title">검색</button>
+  <input type="text" placeholder="영화이름을 검색해주세요"  id="movie_title">
+    <button type="button"  onclick="searchBtn()">검색</button>
  </div>
 </form>
 
