@@ -14,7 +14,8 @@
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
  
 <script>
-  
+
+
 
    function dropbtn() {
       document.getElementById("myDropdown").classList.toggle("show");
@@ -57,10 +58,11 @@
  	   });	   
  	}
     
-  function searchBtn() {
-	location.href="MovieList.jsp"
-}
-
+  function searchBtn() { 
+  	var movie_title = $("#movie_title").val();
+     	location.href="<c:url value='/search.go'/>?movie_title="+movie_title;
+  	
+  }
     
 </script>
 
@@ -108,77 +110,41 @@
      <a href="#">판타지</a>
      <a href="#">다큐멘터리</a>
      <a href="#">외국</a>    
+     <a href="#">외국</a>    
    </div>
  </div>
 </nav>
   
   <body>
+  
+    <form method="post" >
+    
+ 	<div class="mainbutton">
+  	<input type="text" placeholder="영화이름을 검색해주세요  " id="movie_title">
+    <button type="button"  onclick="searchBtn()" >검색</button>
+ 	</div>
+	</form>
+    
+  
+  
     <div class="overlay"></div>
 	<div class="wrapper">
+	<c:forEach var="vo" items="${list}">
         <div class="card">
-            <img src="https://cdn.gukjenews.com/news/photo/202105/2217297_2209695_333.jpg">
+            <img src="${vo.movie_picture}">
             <div class="descriptions">
-                <h1>Equalizer 2</h1>
-                <p>요러코롬 저로코롬</p>
+                <h1>${vo.movie_title}</h1>
+                <p>${vo.movie_summary}</p>
                 <button>
                     <i class="fab fa-youtube"></i>상세보기</button>
             </div>
         </div>
-
-        <div class="card">
-            <img src="https://cdn.gukjenews.com/news/photo/202105/2217297_2209695_333.jpg">
-            <div class="descriptions">
-                <h1>Equalizer 2</h1>
-                <p>요러코롬 저로코롬</p>
-                <button>
-                    <i class="fab fa-youtube"></i>상세보기</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.gukjenews.com/news/photo/202105/2217297_2209695_333.jpg">
-            <div class="descriptions">
-                <h1>Equalizer 2</h1>
-                <p>요러코롬 저로코롬</p>
-                <button>
-                    <i class="fab fa-youtube"></i>상세보기</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.gukjenews.com/news/photo/202105/2217297_2209695_333.jpg">
-            <div class="descriptions">
-                <h1>Equalizer 2</h1>
-                <p>요러코롬 저로코롬</p>
-                <button>
-                    <i class="fab fa-youtube"></i>상세보기</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.gukjenews.com/news/photo/202105/2217297_2209695_333.jpg">
-            <div class="descriptions">
-                <h1>Equalizer 2</h1>
-                <p>요러코롬 저로코롬</p>
-                <button>
-                    <i class="fab fa-youtube"></i>상세보기</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.gukjenews.com/news/photo/202105/2217297_2209695_333.jpg">
-            <div class="descriptions">
-                <h1>Equalizer 2</h1>
-                <p>요러코롬 저로코롬</p>
-                <button>
-                    <i class="fab fa-youtube"></i>상세보기</button>
-            </div>
-        </div>
-
-
+        </c:forEach>
+      
     </div>
-    
+  
 
 
   </body>
+
 </html>

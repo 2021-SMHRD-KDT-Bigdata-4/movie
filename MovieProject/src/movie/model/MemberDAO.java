@@ -1,10 +1,6 @@
 package movie.model;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -46,18 +42,12 @@ public class MemberDAO {
 		sqlSession.close(); // 반납
 		return cnt;
 	}
-	public int deleteMember(String member_id) {
+	public int deleteMember(int member_seq) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		int cnt = sqlSession.delete("deleteMember", member_id);
+		int cnt = sqlSession.delete("deleteMember", member_seq);
 		sqlSession.commit(); // 완료
 		sqlSession.close(); // 반납
 		return cnt;
-	}
-	public int checkMember(String member_id) {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		int result = sqlSession.selectOne("checkMember", member_id);
-		sqlSession.close();
-		return result;
 	}
 
 }

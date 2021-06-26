@@ -1,3 +1,4 @@
+
 package movie.model;
 
 import java.io.InputStream;
@@ -22,14 +23,15 @@ public class MovieDAO {
 		}
 	}
 	
-	public List<MovieVO> selectMovie(MovieVO vo) {
-		SqlSession session = sqlSessionFactory.openSession();
-		//검색 결과가 아예 없을수도 있고 정확히 몇개인지 모르니 List로 받는다.
-		List<MovieVO> list = null;
-		list = session.selectList("selectMovie", vo);
-		session.close();
+	public List<MovieVO> selectMovie(String movie_title) {
+
+		SqlSession sqlSession  =sqlSessionFactory.openSession();
+		List<MovieVO> list=sqlSession.selectList("selectMovie",movie_title);
+		sqlSession.close();//반납
 		return list;
+    }
 
 
 	}
-}
+
+

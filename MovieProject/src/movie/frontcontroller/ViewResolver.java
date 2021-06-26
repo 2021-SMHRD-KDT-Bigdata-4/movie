@@ -2,6 +2,8 @@ package movie.frontcontroller;
 
 public class ViewResolver {
 	public static String makeUrl(String view) {
-		return "/WEB-INF/views/"+view+".jsp"; 
+
+		return "/"+view+".jsp";
+
 	}
 }

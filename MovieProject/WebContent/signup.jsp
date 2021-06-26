@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 <link href="css/reset.css" rel="stylesheet" type="text/css" />
 <link href="css/signupstyle.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.1.12.4.js"></script>
-<script type="text/javascript"
+<script type="text/j-vascript" src="js/jquery.1.12.4.js"></script>
+<script type="text/j-vascript"
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
 
 <script>
@@ -43,12 +43,13 @@
   	      type:"post",
   	      data : signData,
   	      success:function(data){
-	    		alert("회원가입완료")
-	    		location.href="Main.jsp"; 
+	      alert("회원가입완료")
+	      location.href="Main.jsp"; 
   	      },
   	     error:function(){alert("error");}	      
   	   });	   	
      }
+
 
     
     $(function(){
@@ -58,20 +59,20 @@
     	   $('#member_id').blur(function(){
     	        $.ajax({
     	         url:"check.go",
-    		     type:"post", 		     
-    		     data:{ "member_id":$('#member_id').val()
-    		    },
-    		     success:function(data){	
-    		            if(parseInt(data)==1){
-    		               $(".msg2").show();
-    		               $(".msg1").hide();
-    		           	}else{
-    		           		$(".msg1").show();
-    		           		$(".msg2").hide();
-    		            }
-    		         },
-    		         error:function(){alert("error");}	
-    		    });
+           type:"post",        
+           data:{ "member_id":$('#member_id').val()
+          },
+           success:function(data){	
+                  if(parseInt(data)==1){
+                     $(".msg2").show();
+                     $(".msg1").hide();
+                 	}else{
+                   $(".msg1").show();
+                   $(".msg2").hide();
+                  }
+               },
+               error:function(){alert("error");}	
+          });
     	     });
     	});
     	
@@ -80,20 +81,21 @@
     	//비밀번호 확인
     	$(".pw1").hide();
     	$(".pw2").hide();
-    		$("#member_password_check").keyup(function(){
-    		   var member_password = $("#member_password").val() ;
-    		   var member_password_check = $("#member_password_check").val();
-    		   if(member_password != "" || member_password_check != ""){
-    			   if(member_password==member_password_check){
-    				    $(".pw1").show();
-    			    	$(".pw2").hide();
-    			   }else{
-    				    $(".pw1").hide();
-    			    	$(".pw2").show();
-    			   }    			  
-    		   }    		    	
-    		});  	   
+      $("#member_password_check").keyup(function(){
+         var member_password = $("#member_password").val() ;
+         var member_password_check = $("#member_password_check").val();
+         if(member_password != "" || member_password_check != ""){
+         if(member_password==member_password_check){
+          $(".pw1").show();
+          	$(".pw2").hide();
+         }else{
+          $(".pw1").hide();
+          	$(".pw2").show();
+         }        
+         }          	
+      });  	   
     	}); 
+
 
 </script>
 
@@ -142,6 +144,7 @@
         <input type="text" class="id" placeholder="아이디" name="member_id" id="member_id">
         <span class="msg1">사용가능합니다.</span>
         <span class="msg2">중복된 아이디 입니다.</span>
+
 
       </div>
       <div class="passForm">

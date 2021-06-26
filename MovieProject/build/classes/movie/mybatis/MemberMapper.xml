@@ -21,6 +21,7 @@
 
     	</insert>
     	
+
    
     	<update id="updateMember" parameterType="memberVO">
 	    	update tbl_member set member_password = #{member_password}, member_name = #{member_name}, 
@@ -31,5 +32,8 @@
     	<delete id="deleteMember">
     	    delete from tbl_member where member_id = #{member_id}
     	</delete> 
+
+    
+
     	
 </mapper>

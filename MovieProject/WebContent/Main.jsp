@@ -119,7 +119,7 @@
 
 
 <body>
-  <form method="post" action="#" >
+  <form method="post">
  <div class="mainbutton">
  
   <input type="text" placeholder="영화이름을 검색해주세요">
