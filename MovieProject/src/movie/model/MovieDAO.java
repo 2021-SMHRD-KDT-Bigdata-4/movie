@@ -30,7 +30,13 @@ public class MovieDAO {
 		sqlSession.close();//반납
 		return list;
     }
-	
+	public MovieVO oneselectMovie(int movie_seq) {
+
+		SqlSession sqlSession  =sqlSessionFactory.openSession();
+		MovieVO vo=sqlSession.selectOne("oneselectMovie",movie_seq);
+		sqlSession.close();//반납
+		return vo;
+    }
 	public List<MovieVO> MovieList(){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
@@ -47,5 +53,4 @@ public class MovieDAO {
 	}  
 
 	}
-
 
