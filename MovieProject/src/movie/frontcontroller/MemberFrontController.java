@@ -15,6 +15,7 @@ import movie.web.Controller;
 public class MemberFrontController extends HttpServlet {
    protected void service(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
+
 	   Controller controller=null;
 		  String view=null;
 		  
@@ -42,4 +43,5 @@ public class MemberFrontController extends HttpServlet {
 			}
 		  }		  
 	}
+
 }

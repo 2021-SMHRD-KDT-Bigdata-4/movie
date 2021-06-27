@@ -102,12 +102,13 @@ a {
    cursor: pointer;
  }
  .dropbtn1{
-	color: white;
+ 	color: white;
    padding: 30px;
    font-size: 30px;
    border: none;
    cursor: pointer;
    outline:none;
+   background: none;
  }
  .dropdown-content {
    display: none;

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+   
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,16 +41,43 @@
         }
       }
     }
-    function updateFn() {
-    	   var formData=$("#ufrm").serialize();
+	   function updateFn() {
+    	   var Data=$("#srm").serialize();
     	   $.ajax({
     	      url : "update.go",
     	      type : "post",
-    	      data : formData,
-    	      success : list,
-    	      error : function(){ alert("error");}
-    	   });
-    	}
+    	      data : Data,
+	
+		success : function(data) {
+    		alert("수정완료")
+    		location.href="Main.jsp"; 
+				},
+		error : function() {
+					alert("error");
+				}
+			});
+		}
+    
+    
+		function delBtn() {
+			var Data=$("#member_id").serialize();
+		if (confirm("정말로 삭제 하시겠습니까?") == true) {
+				$.ajax({
+					url : "delete.go",
+					type : "get",
+					data : Data,
+					success : function(data) {
+	    	    		alert("삭제완료")
+	    	    		location.href="Main.jsp"; 
+					},
+					error : function() {
+						alert("error");
+					}
+				});
+		} else {
+			return false;
+		}
+	}		
 </script>
 
 
@@ -86,39 +118,40 @@
       <div class="background_03"></div>
    </div>
    
-   
     <form id="srm" name="srm"  method="post" class="signForm">
-      <h2>회원가입</h2>
+      <h2>마이페이지</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID" name="member_id">
+        <input type="hidden" class="id" placeholder="${sessionScope.MemberVO.member_id}" name="member_id" id="member_id" value="${sessionScope.MemberVO.member_id}">
       </div>
       <div class="passForm">
-        <input type="password" class="pw" placeholder="PW" name="member_password">
+        <input type="password" class="pw" placeholder="${sessionScope.MemberVO.member_password}" name="member_password" id="member_password" value="${sessionScope.MemberVO.member_password}">
       </div>
       <div class="nameForm">
-        <input type="text" class="name" placeholder="이름" name="member_name">
+        <input type="text" class="name" placeholder="${sessionScope.MemberVO.member_name}" name="member_name" id="member_name" value="${sessionScope.MemberVO.member_name}">
       </div>
       <div class="ageForm">
-        <input type="text" class="age" placeholder="나이" name="member_age">
+        <input type="text" class="age" placeholder="${sessionScope.MemberVO.member_age}" name="member_age" id="member_age" value="${sessionScope.MemberVO.member_age}">
         </div>
       <div class="genderForm">
-        <input type="text" class="gender" placeholder="성별" name="member_gender">
+        	<input type="text" class="gender" placeholder="${sessionScope.MemberVO.member_gender}" name="member_gender" id="member_gender" value="${sessionScope.MemberVO.member_gender}">        	
       </div>
       <div class="phoneForm">
-        <input type="text" class="phone" placeholder="전화번호" name="member_phone">
+        <input type="text" class="phone" placeholder="${sessionScope.MemberVO.member_phone}" name="member_phone" id="member_phone" value="${sessionScope.MemberVO.member_phone}">
       </div>
       <div class="genreForm">
-        <input type="text" class="genre" placeholder="선호장르" name="member_genre">
+        <input type="text" class="genre" placeholder="${sessionScope.MemberVO.member_genre}" name="member_genre" id="member_genre" value="${sessionScope.MemberVO.member_genre}">
       </div>
-      <button type="button" class="btn" onclick="signupFn()">
-      	회원등록
+      <button type="button" class="btn" onclick="updateFn()">
+      	회원수정
       </button>
+      <button type="button" class="btn" onclick="delBtn(member_id)">
+      	회원탈퇴
+      </button>     
       <div class="bottomText">
           	회원가입
       </div>
     </form>
-   
-   
+      
 </body>
 
 </html>

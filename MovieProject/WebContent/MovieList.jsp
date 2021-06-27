@@ -153,10 +153,5 @@
     	<li class="page-item"><a class="page-link" aria-label="Page 5 of 797" title="Page 5 of 797" href="?page=5"> 5 </a></li>
     	<li class="page-item"><a class="page-link" aria-label="Last Page" title="Last Page" href="?page=797"><span aria-hidden="true">»</span></a></li>
     </ul>
-   
-    
-  
-
-
   </body>
 </html>

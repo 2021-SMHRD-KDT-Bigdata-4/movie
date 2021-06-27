@@ -1,4 +1,10 @@
 select * from tbl_member;
+
+delete from tbl_member where member_id='member';
+commit;
+
+	
+
 select * from tbl_movie;
 
 select * from tbl_admin;

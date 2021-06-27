@@ -15,9 +15,11 @@ public class DeleteController implements Controller{
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+
 		int member_seq = Integer.parseInt("member_seq");
 		MemberDAO dao = new MemberDAO();
 		int cnt=dao.deleteMember(member_seq);
+
 		// 형식상 보내기
 		PrintWriter out = response.getWriter();
 		out.print(cnt);

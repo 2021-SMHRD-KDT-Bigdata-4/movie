@@ -13,7 +13,9 @@
 <script type="text/javascript" src="js/jquery.1.12.4.js"></script>
 <script type="text/javascript"
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
-
+<style>
+	
+</style>
 <script>
    $(document).ready(function() {
       $('.slider').bxSlider({
@@ -45,7 +47,8 @@
         if (!event.target.matches('.dropbtn1')) {
           var dropdowns = document.getElementsByClassName("dropdown-content1");
           var i;
-          for (i = 0; i < dropdowns.length; i++) {
+          for (i = 0; i <
+          dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
               openDropdown.classList.remove('show');
@@ -63,32 +66,11 @@
  	      error:function(){alert("error");}	      
  	   });	   
  	}
-    
-  
+
    
-
-
     
-  
-	/*
-	function searchBtn() { 
-		var movie_title = $("#movie_title").val();	
-		$.ajax({
-		      url : "search.go",
-		      type: "post",
-		      data: {"movie_title":movie_title},
-		      dataType: "json",
-		      success: function(data){		    
-		    		  location.href="MovieList.jsp";
-		    	  },	    	  	    	    	      	  	      
-		      error: function() { alert("error");}   
-		   });	
-	}  
-	*/
-	
 
 
-		
 </script>
 
 </head>
@@ -111,7 +93,9 @@
 	  			<button  onclick="dropbtn1()" class="dropbtn1">${sessionScope.MemberVO.member_name} </button>
 	  			<div id="myDropdown1" class="dropdown-content">   
 	    			<input type="button" value="로그아웃" onclick="logoutFn()" class="btn btn-info btn-sm">
-	    			<input type="button" value="회원수정" onclick="logoutFn()" class="btn btn-info btn-sm">
+
+	    			<input type="button" value="마이페이지" onclick="location.href='update.jsp'" class="btn btn-info btn-sm">
+
 	  			</div>
 			</div>			 
 	   	</c:otherwise>  
@@ -139,12 +123,16 @@
 
 <body>
 
+
   <form method="post" action="search.go" name="formname"> 
   
+
  <div class="mainbutton">
  
+
   <input class="textarea" type="text" placeholder="영화이름을 검색해주세요  " id="movie_title" name="movie_title">
     <input class="submit" type="submit" value="검색">
+
  </div>
 </form>
 
@@ -174,6 +162,7 @@
    </div>
    
     
+   
     
 </body>
 

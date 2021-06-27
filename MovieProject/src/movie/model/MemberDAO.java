@@ -49,4 +49,5 @@ public class MemberDAO {
 		sqlSession.close(); // 반납
 		return cnt;
 	}
+
 }
