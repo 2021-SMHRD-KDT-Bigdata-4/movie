@@ -20,14 +20,19 @@
 function submitbtn(){
 
     location.href="<c:url value='/filter.go'/>";
+<<<<<<< HEAD
 
 }
 function fi_btn(){
 
     location.href="<c:url value='/filter2.go'/>";
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/movie.git
 
 }
+function fi_btn(){
 
+<<<<<<< HEAD
 function _submit(f)
 {
     //같이 보낼 값 정리
@@ -49,6 +54,10 @@ function _submit(f)
         }
     }
     return true;
+=======
+    location.href="<c:url value='/filter2.go'/>";
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/movie.git
 }
 
 </script>
@@ -77,6 +86,7 @@ function _submit(f)
     </form>
     
     
+<<<<<<< HEAD
     <form action="http://127.0.0.1:5000" method="GET">
          <div class="wrapper">
          
@@ -115,6 +125,30 @@ function _submit(f)
     <!-- <input type="submit" name="Submit" id="button" value="Submit" /> -->
       <!-- <button type="submit" class = "submittest" onclick="fi_btn">파이썬으로보내기</button> -->
    </form>
+=======
+    <form action="http://127.0.0.1:5000/filter" method="POST">
+		   <div class="wrapper">
+   <c:forEach var="vo" items="${list}">
+    <input type="checkbox" value="${vo.movie_seq}" name="${vo.movie_title}">
+   
+   <%-- <input type="checkbox" value="${vo.movie_seq}" onclick="if(this.checked){this.form.submit()}"> --%>
+   <!-- <input type="checkbox" name="match" value="matchwithpairs" checked> -->
+        <div class="card" >
+            <img src="${vo.movie_picture}">
+            <div class="descriptions">
+                <h1>${vo.movie_title}</h1>
+                <p>${vo.movie_summary}</p>
+                <button>
+                    <i class="fab fa-youtube"></i>상세보기</button>
+            </div>
+        </div>
+        </c:forEach>
+        
+      
+    </div>
+		<button type="submit" class = "submittest" onclick="fi_btn">파이썬으로보내기</button>
+	</form>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/movie.git
     
 </body>
 </html>

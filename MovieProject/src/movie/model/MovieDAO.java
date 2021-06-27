@@ -38,7 +38,13 @@ public class MovieDAO {
 		 sqlSession.close(); // 반납
 		 return list;
 	}
-
+	public List<MovieVO> MovieList2(String result){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		 List<MovieVO> list = sqlSession.selectList("movieList2",result);
+		 sqlSession.close(); // 반납
+		 return list;
+	}  
 
 	}
 

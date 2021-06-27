@@ -19,7 +19,7 @@
 
 function submitbtn(){
 
-	 location.href="<c:url value='/filter.go'/>";
+	 location.href="<c:url value='/filter2.go'/>";
 
 }
 
