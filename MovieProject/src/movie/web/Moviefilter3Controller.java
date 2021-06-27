@@ -2,7 +2,6 @@ package movie.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import movie.model.MovieDAO;
 import movie.model.MovieVO;
 
-public class Moviefilter2Controller implements Controller {
+public class Moviefilter3Controller implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
@@ -22,18 +21,16 @@ public class Moviefilter2Controller implements Controller {
 		
 		String result = request.getParameter("result");
 		
-		String filter[] = result.split(",");
-			
+		
+		
+		System.out.println("결과 >> "+result);
+		
+		
 		MovieDAO dao=new MovieDAO();
 		try {
-				
-			List<MovieVO> list = new ArrayList<MovieVO>();
-			for(int i =0; i<filter.length; i++) {
-				list.add(dao.filtering(filter[i]));
-				
-			}
-			System.out.println(list.get(3).getMovie_director());
+			List<MovieVO> list=dao.selectMovie(result);	
 			 request.setAttribute("list", list);
+			 
 			 
 		
 		} catch (Exception e) {			
@@ -41,8 +38,7 @@ public class Moviefilter2Controller implements Controller {
 		}	
 		
 		
-		
-		return "filter3";
+		return "Main";
 	}
 
 }

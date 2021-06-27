@@ -9,6 +9,7 @@ import movie.web.MainController;
 import movie.web.MovieOneSelectController;
 import movie.web.MovieSelectController;
 import movie.web.Moviefilter2Controller;
+import movie.web.Moviefilter3Controller;
 import movie.web.MoviefilterController;
 import movie.web.SignupController;
 import movie.web.UpdateController;
@@ -27,6 +28,8 @@ public class HandlerMapping {
 		mappings.put("/detail.go", new MovieOneSelectController());
 		mappings.put("/filter.go", new MoviefilterController());
 		mappings.put("/filter2.go", new Moviefilter2Controller());
+		mappings.put("/filter3.go", new Moviefilter3Controller());
+
 		
 
 	}

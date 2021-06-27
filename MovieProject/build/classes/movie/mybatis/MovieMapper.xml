@@ -8,7 +8,7 @@
     	
     	<select id="selectMovie" resultType="MovieVO">
 
-    	   select  movie_seq,movie_picture,movie_country,movie_title,movie_genre,movie_summary,movie_director,movie_rate,movie_actor,movie_video,movie_price,movie_runtime,movie_producer,movie_sdate,movie_sumaudience,movie_age,admin_id   from tbl_movie where movie_title  LIKE '%' || #{movie_title}  || '%' 
+    	 select  movie_seq,movie_picture,movie_country,movie_title,movie_genre,movie_summary,movie_director,movie_rate,movie_actor,movie_video,movie_price,movie_runtime,movie_producer,movie_sdate,movie_sumaudience,movie_age,admin_id   from tbl_movie where movie_title  LIKE '%' || #{movie_title}  || '%' 
 
     	</select>
 
@@ -36,5 +36,15 @@
 
     	   select  movie_seq,movie_picture,movie_country,movie_title,movie_genre,movie_summary,movie_director,movie_rate,movie_actor,movie_video,movie_price,movie_runtime,movie_producer,movie_sdate,movie_sumaudience,movie_age,admin_id   from tbl_movie where movie_seq
     	   </select>
+    	   
+    		<select id="filtering" resultType="MovieVO">
+    			    
+    		 select  movie_seq,movie_picture,movie_country,movie_title,movie_genre,movie_summary,movie_director,movie_rate,movie_actor,
+    		 movie_video,movie_price,movie_runtime,movie_producer,movie_sdate,movie_sumaudience,movie_age,admin_id
+    		    from tbl_movie where movie_title=#{movie_title}    
+	    		   
+    		    
+    		    
+    		</select>
 
 </mapper>

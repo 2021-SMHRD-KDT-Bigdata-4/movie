@@ -51,6 +51,17 @@ public class MovieDAO {
 		 sqlSession.close(); // 반납
 		 return list;
 	}  
-
+	
+	public MovieVO filtering(String Movie_title){
+		
+		
+		SqlSession sqlSession  =sqlSessionFactory.openSession();
+		MovieVO vo = sqlSession.selectOne("filtering",Movie_title);
+		 sqlSession.close(); // 반납
+		 return vo;
+	}  
+		
 	}
+
+	
 

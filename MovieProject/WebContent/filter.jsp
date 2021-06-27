@@ -23,6 +23,7 @@ function submitbtn(){
 
 }
 function fi_btn(){
+	
 
     location.href="<c:url value='/filter2.go'/>";
 
@@ -77,7 +78,7 @@ function _submit(f)
     </form>
     
     
-    <form action="http://127.0.0.1:5000" method="GET">
+    <form action="http://127.0.0.1:5000/filter" method="POST">
          <div class="wrapper" style="margin-bottom: 30px;">
          
         
@@ -91,7 +92,7 @@ function _submit(f)
         <div class="card" style="width: 170;; height: 220px; margin-bottom: 50px;" >
             <img  src="${vo.movie_picture}">
           
-            <input class="checkbox"type="checkbox" value="${vo.movie_seq}" name="명량">
+            <input class="checkbox"type="checkbox" value="${vo.movie_title}" name="eee">
         </div>
         
         </c:forEach>

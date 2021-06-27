@@ -19,7 +19,7 @@
 
 function submitbtn(){
 
-	 location.href="<c:url value='/filter2.go'/>";
+	 location.href="<c:url value='/filter3.go'/>";
 
 }
 
@@ -34,7 +34,7 @@ function submitbtn(){
     
     
 	<div class="wrapper">
-<form action="http://127.0.0.1:5000/filter3" method="POST">	<c:forEach var="vo" items="${list}">
+<c:forEach var="vo" items="${list}">
 	<input type="checkbox" value="${vo.movie_seq}">
         <div class="card" >
             <img src="${vo.movie_picture}">
@@ -47,7 +47,6 @@ function submitbtn(){
         </div>
         </c:forEach>
         <button type="submit">파이썬으로보내기</button>
-        </form>
       
     </div>
     <form>
