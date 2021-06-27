@@ -31,7 +31,7 @@ public class Moviefilter2Controller implements Controller {
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}	
-		return "filter2";
+		return "redirect:/filter2.jsp";
 	}
 
 }
