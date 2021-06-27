@@ -58,10 +58,9 @@
  	   });	   
  	}
     
-  function searchBtn() { 
-  	var movie_title = $("#movie_title").val();
-     	location.href="<c:url value='/search.go'/>?movie_title="+movie_title;
-  	
+
+  function detailBtn(movie_seq){
+  	location.href="<c:url value='/detail.go'/>?movie_seq="+movie_seq; 
   }
     
 </script>
@@ -117,13 +116,14 @@
   
   <body>
   
-    <form method="post" >
-    
- 	<div class="mainbutton">
-  	<input type="text" placeholder="영화이름을 검색해주세요  " id="movie_title">
-    <button type="button"  onclick="searchBtn()" >검색</button>
- 	</div>
-	</form>
+     <form method="post" action="search.go" name="formname"> 
+  
+ <div class="mainbutton">
+ 
+  <input class="textarea" type="text" placeholder="영화이름을 검색해주세요  " id="movie_title" name="movie_title">
+    <input class="submit" type="submit" value="검색">
+ </div>
+</form>
     
   
   
@@ -135,13 +135,26 @@
             <div class="descriptions">
                 <h1>${vo.movie_title}</h1>
                 <p>${vo.movie_summary}</p>
-                <button>
+                <button type="button"  onclick="detailBtn(${vo.movie_seq})" >
                     <i class="fab fa-youtube"></i>상세보기</button>
             </div>
         </div>
         </c:forEach>
       
     </div>
+    <ul class="pagenation">
+    	<li class="page-item disabled">
+        <span class="page-link" aria-hidden="true" title="First Page">«</span>
+      </li>
+    	<li class="page-item active"><span class="page-link" aria-label="Current Page" title="Current Page"> 1 </span></li>
+    	<li class="page-item"><a class="page-link" aria-label="Page 2 of 797" title="Page 2 of 797" href="?page=2"> 2 </a></li>
+    	<li class="page-item"><a class="page-link" aria-label="Page 3 of 797" title="Page 3 of 797" href="?page=3"> 3 </a></li>
+    	<li class="page-item"><a class="page-link" aria-label="Page 4 of 797" title="Page 4 of 797" href="?page=4"> 4 </a></li>
+    	<li class="page-item"><a class="page-link" aria-label="Page 5 of 797" title="Page 5 of 797" href="?page=5"> 5 </a></li>
+    	<li class="page-item"><a class="page-link" aria-label="Last Page" title="Last Page" href="?page=797"><span aria-hidden="true">»</span></a></li>
+    </ul>
+   
+    
   
 
 

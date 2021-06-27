@@ -64,11 +64,12 @@
  	   });	   
  	}
     
-    function searchBtn() { 
-    	var movie_title = $("#movie_title").val();
-       	location.href="<c:url value='/search.go'/>?movie_title="+movie_title;
-    	
-    }
+  
+   
+
+
+    
+  
 	/*
 	function searchBtn() { 
 		var movie_title = $("#movie_title").val();	
@@ -84,6 +85,10 @@
 		   });	
 	}  
 	*/
+	
+
+
+		
 </script>
 
 </head>
@@ -133,13 +138,18 @@
 
 
 <body>
-  <form method="post" >
+
+  <form method="post" action="search.go" name="formname"> 
+  
  <div class="mainbutton">
  
-  <input type="text" placeholder="영화이름을 검색해주세요  " id="movie_title">
-    <button type="button"  onclick="searchBtn()" >검색</button>
+  <input class="textarea" type="text" placeholder="영화이름을 검색해주세요  " id="movie_title" name="movie_title">
+    <input class="submit" type="submit" value="검색">
  </div>
 </form>
+
+
+
 
 	<div class="maintext"><p>
 	

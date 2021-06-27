@@ -87,8 +87,8 @@ input ::-webkit-input-placeholder {color: #a8a8a8;}
 input ::-moz-placeholder { color: #a8a8a8;}
 
 .mainbutton{
-	
-	top: 20%;
+	opacity : 0.9;
+	top: 10%;
 	left: 40%;
 	position: absolute;
 	z-index: 100;
@@ -98,7 +98,7 @@ input ::-moz-placeholder { color: #a8a8a8;}
 	background: #ffffff;
 }
 
-input{
+input.textarea{
 	font-size: 16px;
 	width: 325px;
 	padding: 10px;
@@ -107,7 +107,7 @@ input{
 	float: left;
 }
 
-button{
+.submit{
 
 	width: 50px;
 	height: 100%;
@@ -256,4 +256,43 @@ button{
   50%{
     color:#ff0000;
   }
+/*  footer   */
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
 
+footer p {
+    margin: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida  Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+footer .fa-heart{
+    color: red;
+}
+footer .fa-dev{
+    color: #fff;
+}
+footer .fa-twitter-square{
+  color:#1da0f1;
+}
+footer .fa-instagram{
+  color: #f0007c;
+}
+fotter .fa-linkedin{
+  color:#0073b1;
+}
+footer .fa-codepen{
+  color:#fff
+}
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+  margin-right:5px;
+}

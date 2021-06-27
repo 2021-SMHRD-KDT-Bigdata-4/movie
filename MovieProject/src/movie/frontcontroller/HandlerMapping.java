@@ -6,6 +6,7 @@ import movie.web.Controller;
 import movie.web.LoginController;
 import movie.web.LogoutController;
 import movie.web.MainController;
+import movie.web.MovieOneSelectController;
 import movie.web.MovieSelectController;
 import movie.web.SignupController;
 import movie.web.UpdateController;
@@ -21,6 +22,7 @@ public class HandlerMapping {
 		mappings.put("/update.go", new UpdateController());		
 		mappings.put("/main.go", new MainController());
 		mappings.put("/search.go", new MovieSelectController());
+		mappings.put("/detail.go", new MovieOneSelectController());
 		
 	}
 
