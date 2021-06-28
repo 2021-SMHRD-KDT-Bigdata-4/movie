@@ -42,7 +42,7 @@ public class Moviefilter2Controller implements Controller {
 		
 		
 		
-		return "filter3";
+		return "filter2";
 	}
 
 }

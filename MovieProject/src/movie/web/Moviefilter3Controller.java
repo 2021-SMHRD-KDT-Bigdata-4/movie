@@ -2,6 +2,7 @@ package movie.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,14 +22,17 @@ public class Moviefilter3Controller implements Controller {
 		
 		String result = request.getParameter("result");
 		
-		
-		
-		System.out.println("결과 >> "+result);
-		
+		String filter[] = result.split(",");
 		
 		MovieDAO dao=new MovieDAO();
 		try {
-			List<MovieVO> list=dao.selectMovie(result);	
+				
+			List<MovieVO> list = new ArrayList<MovieVO>();
+			for(int i =0; i<filter.length; i++) {
+				list.add(dao.filtering(filter[i]));
+				
+			}
+			System.out.println(list.get(3).getMovie_director());
 			 request.setAttribute("list", list);
 			 
 			 
