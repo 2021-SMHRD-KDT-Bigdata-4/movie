@@ -57,12 +57,25 @@
           error:function(){alert("error");}         
        });      
     }
-    
-  function searchBtn() { 
-     var movie_title = $("#movie_title").val();
-        location.href="<c:url value='/search.go'/>?movie_title="+movie_title;
-  }
-
+    function writeFn(movie_seq) {
+    	   var formData= $("#frm").serialize();
+    	   $.ajax({
+    	      url : "review.go",
+    	      type: "post",
+    	      data: formData,
+    	      success: function() {
+    	    	  location.href="<c:url value='/detail.go'/>?movie_seq="+movie_seq; 
+    	    	},
+    	      error: function() { alert("error");   }
+    	   
+    	   });   
+    	}
+    function writeFn1() {
+    	 if(confirm ("로그인하시겠습니까?")==true){
+    		 location.href="login.jsp"
+    	  
+    	}
+    }
     
 </script>
 
@@ -148,18 +161,39 @@
     <div class="iframe">
     	<iframe width="900px" height="300px" src="https://www.youtube.com/embed/d-m4rYkGhwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     	</div>
-    <div>
-    
-    
-    
+    <div class="reviewcontents">
+    <table style='border="1"'>
+    <c:forEach var="vo" items="${list}">
+     	<tr>
+     	
+     		<td>${vo.review_contents}</td>
+     	
+    	 </tr>
+    </c:forEach>
+    </table>
+   
     </div>	
     	
-    <form action="#">	
-    <div class="review">
-    
-    <input style="width:900px; height: 100px" placeholder="리뷰를작성해주세요">
-    <input  type="submit" class="submit" value="리뷰쓰기">
+  
+    <form id="frm" name="frm"  method="post">
+	<c:if test="${sessionScope.MemberVO==null}">
+       <div class="review">
+    <input style="width:900px; height: 100px" placeholder="리뷰를작성해주세요"id="review_contents" name="review_contents">
+    <input type="hidden" class="class" name="review_movie" id="review_movie" value="${vo.movie_title}">
+    <input type="hidden" class="class" name="movie_seq" id="movie_seq" value="${vo.movie_seq}">
+    <input type="hidden" class="class" name="member_seq" id="member_seq" value="${sessionScope.MemberVO.member_seq}">
+    <button type="button" class="btn" onclick="writeFn1()">리뷰쓰기</button>
     </div>
+    </c:if>
+    <c:if test="${sessionScope.MemberVO!=null}">
+       <div class="review">
+    <input style="width:900px; height: 100px" placeholder="리뷰를작성해주세요"id="review_contents" name="review_contents">
+    <input type="hidden" class="class" name="review_movie" id="review_movie" value="${vo.movie_title}">
+    <input type="hidden" class="class" name="movie_seq" id="movie_seq" value="${vo.movie_seq}">
+    <input type="hidden" class="class" name="member_seq" id="member_seq" value="${sessionScope.MemberVO.member_seq}">
+    <button type="button" class="btn" onclick="writeFn(${vo.movie_seq})">리뷰쓰기</button>
+    </div>
+   </c:if>
     </form>
     
     

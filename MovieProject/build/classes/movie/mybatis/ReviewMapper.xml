@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movie.mybatis.ReviewMapper">
+
+		<insert id="ReviewInsert" >
+		    insert into TBL_REVIEW(review_seq,review_contents,review_movie,member_seq,movie_seq)
+		    values(review_idx.nextval,#{review_contents},#{review_movie},#{member_seq},#{movie_seq})		    
+		</insert>
+		<select id="reviewList" resultType="reviewVO">
+		    select * from TBL_REVIEW		    
+		</select>
+</mapper>

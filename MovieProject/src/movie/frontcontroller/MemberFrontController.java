@@ -33,9 +33,10 @@ public class MemberFrontController extends HttpServlet {
 		  
 		  //-----------------------------------------		  
 		  view=controller.requestHandler(request, response);
-		  System.out.println(view);
+		  
 		  if(view!=null) {  
 			if(view.indexOf("redirect:/")!=-1) {
+				System.out.println(view);
 				response.sendRedirect(view.split(":/")[1]); 
 			}else {
 				RequestDispatcher rd=request.getRequestDispatcher(ViewResolver.makeUrl(view)); 
