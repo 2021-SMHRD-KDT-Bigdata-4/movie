@@ -34,6 +34,7 @@ function submitbtn(){
     
     
 	<div class="wrapper">
+	<form>
 <c:forEach var="vo" items="${list}">
 	<input type="checkbox" value="${vo.movie_seq}">
         <div class="card" >
@@ -47,6 +48,7 @@ function submitbtn(){
         </div>
         </c:forEach>
         <button type="submit">파이썬으로보내기</button>
+        </form>
       
     </div>
     <form>

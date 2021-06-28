@@ -44,7 +44,7 @@
            data : signData,
            success:function(data){
              alert("회원가입완료")
-             location.href="Main.jsp"; 
+             location.href="filter.go"; 
            },
           error:function(){alert("error");}         
         });         

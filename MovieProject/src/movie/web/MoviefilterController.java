@@ -16,13 +16,12 @@ public class MoviefilterController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println(1);
+		
 		MovieDAO dao=new MovieDAO();
 		try {
 			List<MovieVO> list=dao.MovieList();	
 			 request.setAttribute("list", list);
-		System.out.println(list.get(0).getMovie_age());
-		System.out.println(list.get(2).getMovie_seq());
+		System.out.println("filter1");
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}	
