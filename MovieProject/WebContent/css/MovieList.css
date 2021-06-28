@@ -34,13 +34,17 @@ body , html{
    width: 50px;
  }
  .dropbtn1{
-	color: white;
-   padding: 30px;
-   font-size: 30px;
+ 	color: white;
+	padding-bottom: 10px;
+   font-size: 16px;
    border: none;
    cursor: pointer;
    outline:none;
+   background: none;
+   width: 150px;
+   top: 0;
  }
+ 
  .dropdown-content {
    display: none;
    position: absolute;
