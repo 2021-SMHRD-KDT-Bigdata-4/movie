@@ -17,6 +17,11 @@
 
 <script>
 
+$(document).ready(()=>{
+	
+
+
+
 function submitbtn(){
 
     location.href="<c:url value='/filter.go'/>";
@@ -29,28 +34,7 @@ function fi_btn(){
 
 }
 
-function _submit(f)
-{
-    //같이 보낼 값 정리
-    if (typeof(f.elements['chk[]'].length) == 'undefined') //단일
-    {
-        if (f.elements['chk[]'].checked==false)
-        {
-            f.elements['field_a[]'].disabled=true;
-            f.elements['field_b[]'].disabled=true;
-        }
-    } else { //다중
-        for (i=0; i<f.elements['chk[]'].length; i++)
-        {
-            if (f.elements['chk[]'][i].checked==false)
-            {
-                f.elements['field_a[]'][i].disabled=true;
-                f.elements['field_b[]'][i].disabled=true;
-            }
-        }
-    }
-    return true;
-}
+
 
 </script>
 
@@ -73,38 +57,49 @@ function _submit(f)
         
       <button type="submit">파이썬으로보내기</button>
     </div> --%>
-    <form>
-    <button class= "submitbutton" type="button" onclick="submitbtn()">제출</button>
-    </form>
+    
+    
+    
+    
     
     
     <form action="http://127.0.0.1:5000/filter" method="POST">
-         <div class="wrapper" style="margin-bottom: 30px;">
+    <div class="overlay"></div>
+    
+         <div class="wrapper" class="wrapper" id="wrapper" style="margin-bottom: 30px;">
          
         
         
-   <c:forEach var="vo" items="${list}">
+   <c:forEach  var="vo" items="${list}">
    <!-- <form id="form1" name="form1" method="post" action="" onsubmit="_submit(this);"> -->
     
 <!--    </form> -->
    <%-- <input type="checkbox" value="${vo.movie_seq}" onclick="if(this.checked){this.form.submit()}"> --%>
    <!-- <input type="checkbox" name="match" value="matchwithpairs" checked> -->
+   		
         <div class="card" style="width: 170;; height: 220px; margin-bottom: 50px;" >
             <img  src="${vo.movie_picture}">
-          
             <input class="checkbox"type="checkbox" value="${vo.movie_title}" name="eee">
         </div>
-        
         </c:forEach>
-        
-      
     </div>
+    
           <!-- <input type="submit" value="전송"> -->
-           <button type="submit" class="recosubmit">보내기</button>
+         
+           
+           
+   
+    
           <!-- <button type="submit" class = "submittest">파이썬으로보내기</button> -->
     <!-- <input type="submit" name="Submit" id="button" value="Submit" /> -->
       <!-- <button type="submit" class = "submittest" onclick="fi_btn">파이썬으로보내기</button> -->
    </form>
+   
+   <button class="submit"type="submit" class="recosubmit">보내기</button>
+   
+    <button class="submit" type="button" onclick="submitbtn()">제출</button>
+    
+   
     
 </body>
 </html>
