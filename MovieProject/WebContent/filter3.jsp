@@ -17,22 +17,44 @@
 
 <script>
 
+function submitbtn(){
+
+	 location.href="<c:url value='/filter3.go'/>";
+
+}
+
+
+
+
+
 
 </script>
 
-   
-    <form action="http://127.0.0.1:5000/filter" method="POST">
-         <div class="wrapper" style="margin-bottom: 30px;">
-   		<c:forEach var="vo" items="${list}">
-        <div class="card" style="width: 170; height: 220px; margin-bottom: 50px;" >
-            <img  src="${vo.movie_picture}">
-            <input class="checkbox"type="checkbox" value="${vo.movie_title}" name="movie_name">
+    
+    
+    
+	<div class="wrapper">
+	<form>
+<c:forEach var="vo" items="${list}">
+	<input type="checkbox" value="${vo.movie_seq}">
+        <div class="card" >
+            <img src="${vo.movie_picture}">
+            <div class="descriptions">
+                <h1>${vo.movie_title}</h1>
+                <p>${vo.movie_summary}</p>
+                <button>
+                    <i class="fab fa-youtube"></i>상세보기</button>
+            </div>
         </div>
         </c:forEach>
-        
+        <button type="submit">파이썬으로보내기</button>
+        </form>
+      
     </div>
-           <button type="submit" class="recosubmit">보내기</button>
-   </form>
+    <form>
+    <button class= "submitbutton" type="button" onclick="submitbtn()">제출</button>
+    </form>
+    
     
 </body>
 </html>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import movie.model.MovieDAO;
 import movie.model.MovieVO;
 
-public class Moviefilter2Controller implements Controller {
+public class Moviefilter3Controller implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
@@ -23,7 +23,7 @@ public class Moviefilter2Controller implements Controller {
 		String result = request.getParameter("result");
 		
 		String filter[] = result.split(",");
-			
+		
 		MovieDAO dao=new MovieDAO();
 		try {
 				
@@ -35,14 +35,14 @@ public class Moviefilter2Controller implements Controller {
 			System.out.println(list.get(3).getMovie_director());
 			 request.setAttribute("list", list);
 			 
+			 
 		
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}	
 		
 		
-		
-		return "filter2";
+		return "Main";
 	}
 
 }

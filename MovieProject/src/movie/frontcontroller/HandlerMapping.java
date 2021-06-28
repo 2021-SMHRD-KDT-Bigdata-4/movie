@@ -10,6 +10,7 @@ import movie.web.MovieOneSelectController;
 import movie.web.MovieReviewController;
 import movie.web.MovieSelectController;
 import movie.web.Moviefilter2Controller;
+import movie.web.Moviefilter3Controller;
 import movie.web.MoviefilterController;
 import movie.web.SignupController;
 import movie.web.UpdateController;
@@ -24,11 +25,15 @@ public class HandlerMapping {
 		mappings.put("/signup.go", new SignupController());
 		mappings.put("/update.go", new UpdateController());		
 		mappings.put("/main.go", new MainController());
+
 		mappings.put("/search.go", new MovieSelectController());
 		mappings.put("/detail.go", new MovieOneSelectController());
 		mappings.put("/review.go", new MovieReviewController());
+
 		mappings.put("/filter.go", new MoviefilterController());
 		mappings.put("/filter2.go", new Moviefilter2Controller());
+		mappings.put("/filter3.go", new Moviefilter3Controller());
+
 		
 
 	}

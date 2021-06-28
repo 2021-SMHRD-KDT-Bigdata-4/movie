@@ -83,7 +83,7 @@
       </a>
 </div>
 
- <div class="loginform">	
+ <div class="loginform" style="margin-bottom: 10px">	
 	<c:choose>
 	   <c:when test="${sessionScope.MemberVO==null}">
 	   		<a href="login.jsp">login</a>
