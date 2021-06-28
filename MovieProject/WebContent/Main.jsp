@@ -15,7 +15,7 @@
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
 <style>
 	
-</style>\
+</style>
 <script>
    $(document).ready(function() {
       $('.slider').bxSlider({

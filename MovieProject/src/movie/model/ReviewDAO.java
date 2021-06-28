@@ -31,9 +31,9 @@ public class ReviewDAO {
 				
 	}
 		
-		public List<ReviewVO> reviewList(){
+		public List<ReviewVO> reviewList(int movie_seq){
 			SqlSession sqlSession  =sqlSessionFactory.openSession();
-		List<ReviewVO> list=sqlSession.selectList("reviewList");
+		List<ReviewVO> list=sqlSession.selectList("reviewList",movie_seq);
 		sqlSession.close();//반납
 		return list;	
 		}	

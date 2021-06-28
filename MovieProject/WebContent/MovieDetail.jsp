@@ -12,6 +12,10 @@
 <script type="text/javascript" src="js/jquery.1.12.4.js"></script>
 <script type="text/javascript"
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
+   <!-- Latest compiled and minified CSS -->
+
+
+
  
 <script>
 
@@ -160,19 +164,33 @@
     
     <div class="iframe">
     	<iframe width="900px" height="300px" src="https://www.youtube.com/embed/d-m4rYkGhwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    	 	<div class="blueone">
+    	 <table>
+    <thead>
+      <tr>
+      	<th>No</th>
+        <th>리뷰내용</th>
+        <th>작성시간</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <c:forEach var="vo" items="${list}">
+      <tr>
+      	<td>${vo.review_seq}</td>
+        <td>${vo.review_contents}</td>
+        <td>${vo.review_date}</td>
+      </tr>
+      </c:forEach>
+    </tbody>
+  </table>
+</div>
     	</div>
-    <div class="reviewcontents">
-    <table style='border="1"'>
-    <c:forEach var="vo" items="${list}">
-     	<tr>
-     	
-     		<td>${vo.review_contents}</td>
-     	
-    	 </tr>
-    </c:forEach>
-    </table>
+    	
    
-    </div>	
+    	
+    	
+ 	
     	
   
     <form id="frm" name="frm"  method="post">

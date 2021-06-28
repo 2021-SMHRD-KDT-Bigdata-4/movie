@@ -140,18 +140,35 @@
             </div>
         </div>
         </c:forEach>
+  
       
     </div>
-    <ul class="pagenation">
-    	<li class="page-item disabled">
-        <span class="page-link" aria-hidden="true" title="First Page">«</span>
-      </li>
-    	<li class="page-item active"><span class="page-link" aria-label="Current Page" title="Current Page"> 1 </span></li>
-    	<li class="page-item"><a class="page-link" aria-label="Page 2 of 797" title="Page 2 of 797" href="?page=2"> 2 </a></li>
-    	<li class="page-item"><a class="page-link" aria-label="Page 3 of 797" title="Page 3 of 797" href="?page=3"> 3 </a></li>
-    	<li class="page-item"><a class="page-link" aria-label="Page 4 of 797" title="Page 4 of 797" href="?page=4"> 4 </a></li>
-    	<li class="page-item"><a class="page-link" aria-label="Page 5 of 797" title="Page 5 of 797" href="?page=5"> 5 </a></li>
-    	<li class="page-item"><a class="page-link" aria-label="Last Page" title="Last Page" href="?page=797"><span aria-hidden="true">»</span></a></li>
-    </ul>
+    
+                  <div class = "paging1" id="paging">
+<!-- 1~10까지 있는 페이지의 페이징 -->
+<c:url var="action" value="/memList.do"/>
+<c:if test="${param.prev}">
+    <a href="${action}?page=${param.beginPage-1}">prev</a>
+</c:if>
+<c:forEach begin="${param.beginPage}" end="${param.endPage}" step="1" var="index">
+    <c:choose>
+        <c:when test="${param.page==index}">
+            ${index}
+        </c:when>
+        <c:otherwise>
+            <a href="${action}?page=${index}">${index}</a>
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
+<c:if test="${param.next}">
+    <a href="${action}?page=${param.endPage+1}">next</a>
+</c:if>
+</div>
+   
+
+
+
+
+
   </body>
 </html>

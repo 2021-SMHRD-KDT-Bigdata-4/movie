@@ -160,6 +160,25 @@ position:relative;
   margin-top: 50px;
   background-color: rgb(224,220,215);
 }
+.blueone {
+  border-collapse: collapse;
+}  
+.blueone th {
+  padding: 10px;
+  color: #168;
+  border-bottom: 3px solid #168;
+  text-align: left;
+}
+.blueone td {
+  color: #669;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.blueone tr:hover td {
+  color: #004;
+}
+
+
 
 
 

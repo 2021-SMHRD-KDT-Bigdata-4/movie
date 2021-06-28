@@ -2,6 +2,7 @@
 package movie.model;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -59,8 +60,10 @@ public class MovieDAO {
 		MovieVO vo = sqlSession.selectOne("filtering",Movie_title);
 		 sqlSession.close(); // 반납
 		 return vo;
-	}  
-		
+	} 
+	
+	
+
 	}
 
 	

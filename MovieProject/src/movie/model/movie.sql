@@ -24,3 +24,5 @@ values (MOVIE_IDX.nextval,'https://image.aladin.co.kr/product/2635/47/cover500/8
  
  insert into TBL_REVIEW(review_seq,review_contents,review_movie,member_seq,movie_seq) values(review_idx.nextval,'5','1','1','1');
  delete from tbl_review ;
+ 
+ select * from ( select movie_seq as row_num, tbl_movie.* from tbl_movie)  where row_num <=10;

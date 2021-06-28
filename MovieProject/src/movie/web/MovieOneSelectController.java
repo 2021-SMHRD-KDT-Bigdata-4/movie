@@ -27,7 +27,7 @@ public class MovieOneSelectController implements Controller {
 		List<ReviewVO> list =new ArrayList<ReviewVO>();
 		try {
 			//리뷰
-			 list =dao1.reviewList();
+			 list =dao1.reviewList(movie_seq);
 			 request.setAttribute("list", list);
 			//영화
 			MovieVO vo=dao.oneselectMovie(movie_seq);
