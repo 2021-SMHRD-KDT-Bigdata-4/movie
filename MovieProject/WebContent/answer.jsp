@@ -14,7 +14,7 @@
 <script>
 
 function submit() {
-	alert("제출되었습니다.")
+	alert("제출되었습니다. 감사합니다.")
 	history.back();
 }
 
@@ -43,7 +43,7 @@ function submit() {
 	<br>
 	<textarea cols="100" rows="5" placeholder="기타 사항을 적어주세요">기타사항을 적어주세요.</textarea>
 	<br>
-	<input type="button" onclick="submit" value="확인" />
+	<input type="button" onclick="submit()" value="확인" />
 	<input type="reset" value="취소" />
 </body>
 

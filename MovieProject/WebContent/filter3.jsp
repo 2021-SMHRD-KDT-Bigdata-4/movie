@@ -19,6 +19,11 @@
    function detailBtn(movie_seq){
 	  	location.href="<c:url value='/detail.go'/>?movie_seq="+movie_seq; 
 	  }
+   function buttonbtn() {
+	   location.href="answer.jsp";
+	
+}
+   
    </script>
    
 </head>
@@ -50,6 +55,6 @@
            
      
    </form>
-    
+    <button class="submitbutton" type="button" onclick="buttonbtn()" style="z-index: 100; position: absolute; top:90%; left: 50%;">설문조사하러가기</button>
 </body>
 </html>
