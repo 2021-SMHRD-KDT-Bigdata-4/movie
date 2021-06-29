@@ -49,7 +49,7 @@
     	    		alert("회원인증에 실패했습니다.");
     	    	}else{
     	    		alert("환영합니다.")
-    	    		location.href="Main.jsp"; // 메인화면으로
+    	    		location.href="javascript:history.back()"; // 메인화면으로
     	    	}	 
     	    },	    
     	    error : function(){alert("error");}	   		

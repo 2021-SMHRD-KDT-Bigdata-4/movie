@@ -12,7 +12,7 @@
 <script type="text/javascript" src="js/jquery.1.12.4.js"></script>
 <script type="text/javascript"
    src="plugins/bxslider/js/jquery.bxslider.js"></script>
-   <!-- Latest compiled and minified CSS -->
+  
 
 
 
@@ -75,7 +75,7 @@
     	   });   
     	}
     function writeFn1() {
-    	 if(confirm ("로그인하시겠습니까?")==true){
+    	 if(confirm ("리뷰 작성은 로그인이 필요합니다.\n로그하시겠습니까?")==true){
     		 location.href="login.jsp"
     	  
     	}
@@ -164,12 +164,15 @@
     
     <div class="iframe">
     	<iframe width="900px" height="300px" src="https://www.youtube.com/embed/d-m4rYkGhwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    	 	<div class="blueone">
-    	 <table>
+    	 	
+</div>
+<div class="reviewcontents" style="overflow-y:scroll ">
+    	 <table class="blueone">
     <thead>
       <tr>
       	<th>No</th>
         <th>리뷰내용</th>
+        <th>작성자</th>
         <th>작성시간</th>
       </tr>
     </thead>
@@ -179,12 +182,18 @@
       <tr>
       	<td>${vo.review_seq}</td>
         <td>${vo.review_contents}</td>
+        <td>${vo.review_id}</td>
         <td>${vo.review_date}</td>
-      </tr>
+         <td  align="right">
+         
+      <input type="button" value="수정" onclick="updateFn()" class="btn btn-success btn-sm">     
+      <input type="button" value="삭제" onclick="delFn()" class="btn btn-success btn-sm">     
+      </td>
+      </tr>       
       </c:forEach>
+      
     </tbody>
   </table>
-</div>
     	</div>
     	
    
@@ -192,14 +201,12 @@
     	
  	
     	
-  
+	 
     <form id="frm" name="frm"  method="post">
 	<c:if test="${sessionScope.MemberVO==null}">
        <div class="review">
     <input style="width:900px; height: 100px" placeholder="리뷰를작성해주세요"id="review_contents" name="review_contents">
-    <input type="hidden" class="class" name="review_movie" id="review_movie" value="${vo.movie_title}">
-    <input type="hidden" class="class" name="movie_seq" id="movie_seq" value="${vo.movie_seq}">
-    <input type="hidden" class="class" name="member_seq" id="member_seq" value="${sessionScope.MemberVO.member_seq}">
+    
     <button type="button" class="btn" onclick="writeFn1()">리뷰쓰기</button>
     </div>
     </c:if>
@@ -209,12 +216,12 @@
     <input type="hidden" class="class" name="review_movie" id="review_movie" value="${vo.movie_title}">
     <input type="hidden" class="class" name="movie_seq" id="movie_seq" value="${vo.movie_seq}">
     <input type="hidden" class="class" name="member_seq" id="member_seq" value="${sessionScope.MemberVO.member_seq}">
+    <input type="hidden" class="class" name="review_id" id="review_id" value="${sessionScope.MemberVO.member_id}">
     <button type="button" class="btn" onclick="writeFn(${vo.movie_seq})">리뷰쓰기</button>
     </div>
    </c:if>
     </form>
-    
-    
+   
   
   
   

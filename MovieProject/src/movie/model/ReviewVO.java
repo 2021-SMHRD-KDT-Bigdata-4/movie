@@ -9,6 +9,7 @@ public class ReviewVO {
 	    private String review_date;
 	    private int member_seq; 
 	    private int movie_seq;
+	    private String review_id;
 	    
 	    
 		public int getReview_seq() {
@@ -47,5 +48,13 @@ public class ReviewVO {
 		public void setMovie_seq(int movie_seq) {
 			this.movie_seq = movie_seq;
 		}
+		public String getReview_id() {
+			return review_id;
+		}
+		public void setReview_id(String review_id) {
+			this.review_id = review_id;
+		}
 	    
+		
+		
 }

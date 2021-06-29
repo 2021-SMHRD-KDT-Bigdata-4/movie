@@ -2,16 +2,7 @@ package movie.model;
 
 public class MemberVO {
 
-//	  member_seq       NUMBER(20) NOT NULL,
-//	    member_id        VARCHAR2(30) NOT NULL,
-//	    member_password  VARCHAR2(30) NOT NULL,
-//	    member_name      VARCHAR2(30) NOT NULL,
-//	    member_age       VARCHAR2(30) NOT NULL,
-//	    member_gender    VARCHAR2(30) NOT NULL,
-//	    member_phone     VARCHAR2(30) NOT NULL,
-//	    member_genre     VARCHAR2(30) NOT NULL,
-//	    admin_id         VARCHAR2(30) NOT NULL
-	    
+
 	    
 	    private int member_seq;
 	    private String member_id;

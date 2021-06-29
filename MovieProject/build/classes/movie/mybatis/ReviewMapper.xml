@@ -5,8 +5,8 @@
 <mapper namespace="movie.mybatis.ReviewMapper">
 
 		<insert id="ReviewInsert" >
-		    insert into TBL_REVIEW(review_seq,review_contents,review_movie,member_seq,movie_seq)
-		    values(review_idx.nextval,#{review_contents},#{review_movie},#{member_seq},#{movie_seq})		    
+		    insert into TBL_REVIEW(review_seq,review_contents,review_movie,member_seq,movie_seq,review_id)
+		    values(review_idx.nextval,#{review_contents},#{review_movie},#{member_seq},#{movie_seq},#{review_id})		    
 		</insert>
 		<select id="reviewList" resultType="reviewVO">
 		    select * from TBL_REVIEW where 	movie_seq  =#{movie_seq}  

@@ -20,6 +20,7 @@ values (MOVIE_IDX.nextval,'https://image.aladin.co.kr/product/2635/47/cover500/8
  ALTER TABLE TBL_REVIEW MODIFY (review_date datetime not null default sysdate);
  ALTER TABLE TBL_REVIEW MODIFY (review_date DEFAULT sysdate);
  ALTER TABLE TBL_REVIEW MODIFY (review_date DEFAULT sysdate);
+ ALTER TABLE TBL_REVIEW ADD review_id varchar(30) not null;
  select * from tbl_review;
  
  insert into TBL_REVIEW(review_seq,review_contents,review_movie,member_seq,movie_seq) values(review_idx.nextval,'5','1','1','1');

@@ -144,7 +144,7 @@
       
     </div>
     
-                  <div class = "paging1" id="paging">
+ <%--                  <div class = "paging1" id="paging">
 <!-- 1~10까지 있는 페이지의 페이징 -->
 <c:url var="action" value="/memList.do"/>
 <c:if test="${param.prev}">
@@ -165,7 +165,7 @@
 </c:if>
 </div>
    
-
+ --%>
 
 
 

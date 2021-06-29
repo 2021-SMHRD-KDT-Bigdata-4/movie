@@ -18,16 +18,15 @@ public class MovieReviewController implements Controller {
 		
 		String review_contents = request.getParameter("review_contents");
 		String review_movie = request.getParameter("review_movie");
-		int  member_seq = Integer.parseInt(request.getParameter("member_seq"));
-		System.out.println(review_movie);
-		
+		int  member_seq = Integer.parseInt(request.getParameter("member_seq"));				
 		int  movie_seq = Integer.parseInt(request.getParameter("movie_seq"));
-	
+		String review_id = request.getParameter("review_id");
 		ReviewVO vo = new ReviewVO();// 객체만들기
 		vo.setReview_contents(review_contents);
 		vo.setReview_movie(review_movie);
 		vo.setMember_seq(member_seq);
 		vo.setMovie_seq(movie_seq);
+		vo.setReview_id(review_id);
         ReviewDAO dao=new ReviewDAO();
 		int cnt=dao.ReviewInsert(vo);
 		PrintWriter out = response.getWriter();
