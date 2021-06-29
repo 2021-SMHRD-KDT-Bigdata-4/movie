@@ -21,7 +21,7 @@ public class Moviefilter3Controller implements Controller {
 		PrintWriter out = response.getWriter();
 		
 		String result = request.getParameter("result");
-		
+		System.out.println(result);
 		String filter[] = result.split(",");
 		
 		MovieDAO dao=new MovieDAO();
@@ -42,7 +42,7 @@ public class Moviefilter3Controller implements Controller {
 		}	
 		
 		
-		return "Main";
+		return "filter3";
 	}
 
 }

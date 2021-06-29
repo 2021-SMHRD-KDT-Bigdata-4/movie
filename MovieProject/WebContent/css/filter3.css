@@ -19,9 +19,9 @@ html, body {
 
 .text-box {
 	position:absolute;
-	width : 58%;
-	top:5%;
-	left: 27%;
+	width : 70%;
+	top:10%;
+	left: 28%;
 	z-index: 100;
 	
 }
@@ -161,26 +161,7 @@ div .card {
 
 @import url(https://fonts.googleapis.com/css?family=BenchNine:700);
 
-.snip1535 {
-	background-color: #c47135;
-	border: none;
-	color: #ffffff;
-	cursor: pointer;
-	display: inline-block;
-	font-family: 'BenchNine', Arial, sans-serif;
-	font-size: 1em;
-	font-size: 22px;
-	line-height: 1em;
-	margin: 15px 40px;
-	outline: none;
-	padding: 12px 40px 10px;
-	position: absolute;
-	text-transform: uppercase;
-	font-weight: 700;
-	z-index: 100;
-	margin-top: 870px;
-	margin-left: 1275px;
-}
+
 
 .snip1535:before, .snip1535:after {
 	border-color: transparent;
