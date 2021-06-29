@@ -31,10 +31,8 @@ public class MovieOneSelectController implements Controller {
 			 request.setAttribute("list", list);
 			//영화
 			MovieVO vo=dao.oneselectMovie(movie_seq);
-			HttpSession session1 = request.getSession();
-			session1.setAttribute("MovieVO", vo);
 			 request.setAttribute("vo", vo);
-			 	
+			// 	
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}	

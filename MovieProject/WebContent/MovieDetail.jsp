@@ -1,4 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@page import="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE>
@@ -51,6 +53,7 @@
           }
         }
       }
+      
     function logoutFn(){
        $.ajax({
           url: "logout.go",
@@ -61,24 +64,42 @@
           error:function(){alert("error");}         
        });      
     }
-    function writeFn(movie_seq) {
+    
+    function writeFn() {
     	   var formData= $("#frm").serialize();
     	   $.ajax({
     	      url : "review.go",
     	      type: "post",
     	      data: formData,
     	      success: function() {
-    	    	  location.href="<c:url value='/detail.go'/>?movie_seq="+movie_seq; 
+    	    	  location.href="javascript:window.location.reload()"
     	    	},
     	      error: function() { alert("error");   }
     	   
     	   });   
     	}
+    
     function writeFn1() {
-    	 if(confirm ("리뷰 작성은 로그인이 필요합니다.\n로그하시겠습니까?")==true){
+    	 if(confirm ("리뷰 작성은 로그인이 필요합니다.\n로그인하시겠습니까?")==true){
     		 location.href="login.jsp"
     	  
     	}
+    }
+    
+    function delFn(review_seq){   
+    	 if(confirm ("리뷰를 삭제하시겠습니까?")==true){
+    	var review_seq= review_seq;
+    	 $.ajax({
+   	      url : "delete.go",
+   	      type: "post",
+   	      data: {"review_seq":review_seq},
+   	      success: function() {
+   	    	  location.href="javascript:window.location.reload()" ; 
+   	    	},
+   	      error: function() { alert("error");   }
+    	 
+   	   });     
+    	 }	    	  
     }
     
 </script>
@@ -116,18 +137,17 @@
 <div class="dropdown">
    <button onclick="dropbtn()" class="dropbtn"></button>
    <div id="myDropdown" class="dropdown-content">
-     <a href="#">로맨스</a>
-     <a href="#">액션</a>
-     <a href="#">호러</a>
-     <a href="#">코미디</a>
-     <a href="#">애니메이션</a>
-     <a href="#">드라마</a>
-     <a href="#">스릴러</a>
-     <a href="#">SF</a>
-     <a href="#">판타지</a>
-     <a href="#">다큐멘터리</a>
-     <a href="#">외국</a>    
-     <a href="#">외국</a>    
+      <a href="<c:url value='/genre.go'/>?movie_genre=로맨스 ">로맨스</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=액션 " >액션</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=호러">호러</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=코미디">코미디</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=애니메이션">애니메이션</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=드라마">드라마</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=스릴러">스릴러</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=SF">SF</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=판타지">판타지</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=다큐멘터리">다큐멘터리</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=외국">외국</a> 
    </div>
  </div>
 </nav>
@@ -174,6 +194,7 @@
         <th>리뷰내용</th>
         <th>작성자</th>
         <th>작성시간</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -184,23 +205,28 @@
         <td>${vo.review_contents}</td>
         <td>${vo.review_id}</td>
         <td>${vo.review_date}</td>
-         <td  align="right">
-         
-      <input type="button" value="수정" onclick="updateFn()" class="btn btn-success btn-sm">     
-      <input type="button" value="삭제" onclick="delFn()" class="btn btn-success btn-sm">     
+		
+
+	 <c:if test="${sessionScope.MemberVO!=null && sessionScope.MemberVO.member_id==vo.review_id}">
+         <td  align="right">                  
+      <input type="button" value="삭제" onclick="delFn(${vo.review_seq})" class="btn btn-success btn-sm" style="background-color:transparent; ">           
       </td>
-      </tr>       
+	</c:if>
+      </tr>  
+      <tr>
+      
+      </tr>     
       </c:forEach>
       
     </tbody>
   </table>
     	</div>
-    	
+    
    
     	
     	
  	
-    	
+    
 	 
     <form id="frm" name="frm"  method="post">
 	<c:if test="${sessionScope.MemberVO==null}">
@@ -217,13 +243,11 @@
     <input type="hidden" class="class" name="movie_seq" id="movie_seq" value="${vo.movie_seq}">
     <input type="hidden" class="class" name="member_seq" id="member_seq" value="${sessionScope.MemberVO.member_seq}">
     <input type="hidden" class="class" name="review_id" id="review_id" value="${sessionScope.MemberVO.member_id}">
-    <button type="button" class="btn" onclick="writeFn(${vo.movie_seq})">리뷰쓰기</button>
+    <button type="button" class="btn" onclick="writeFn()">리뷰쓰기</button>
     </div>
    </c:if>
     </form>
    
-  
-  
   
 
 

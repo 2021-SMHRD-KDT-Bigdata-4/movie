@@ -37,5 +37,11 @@ public class ReviewDAO {
 		sqlSession.close();//반납
 		return list;	
 		}	
-		
+		public int reviewDelete(int review_seq) {
+			SqlSession sqlSession  =sqlSessionFactory.openSession();
+			int cnt=sqlSession.delete("reviewDelete",review_seq);
+			sqlSession.commit();//완료
+			sqlSession.close();//반납
+			return cnt;
+			}
 }

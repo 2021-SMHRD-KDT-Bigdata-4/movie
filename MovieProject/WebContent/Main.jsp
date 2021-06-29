@@ -105,17 +105,17 @@
 <div class="dropdown">
    <button onclick="dropbtn()" class="dropbtn"></button>
    <div id="myDropdown" class="dropdown-content">
-     <a href="#">로맨스</a>
-     <a href="#">액션</a>
-     <a href="#">호러</a>
-     <a href="#">코미디</a>
-     <a href="#">애니메이션</a>
-     <a href="#">드라마</a>
-     <a href="#">스릴러</a>
-     <a href="#">SF</a>
-     <a href="#">판타지</a>
-     <a href="#">다큐멘터리</a>
-     <a href="#">외국</a>    
+     <a href="<c:url value='/genre.go'/>?movie_genre=로맨스 ">로맨스</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=액션 " >액션</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=호러">호러</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=코미디">코미디</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=애니메이션">애니메이션</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=드라마">드라마</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=스릴러">스릴러</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=SF">SF</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=판타지">판타지</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=다큐멘터리">다큐멘터리</a>
+     <a href="<c:url value='/genre.go'/>?movie_genre=외국">외국</a>    
    </div>
  </div>
 </nav>

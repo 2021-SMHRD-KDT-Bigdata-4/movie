@@ -2,7 +2,6 @@
 package movie.model;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -31,6 +30,12 @@ public class MovieDAO {
 		sqlSession.close();//반납
 		return list;
     }
+	public List<MovieVO> selectgenreMovie(String movie_genre) {
+		SqlSession sqlSession  =sqlSessionFactory.openSession();
+		List<MovieVO> list=sqlSession.selectList("selecGtMovie",movie_genre);
+		sqlSession.close();//반납
+		return list;
+	}
 	public MovieVO oneselectMovie(int movie_seq) {
 
 		SqlSession sqlSession  =sqlSessionFactory.openSession();
