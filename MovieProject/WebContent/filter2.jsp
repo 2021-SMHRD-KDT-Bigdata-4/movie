@@ -15,7 +15,14 @@
 </head>
 <body>
 
-
+	<div class="overlay"></div>
+	
+    <div class="text-box" style="left: 30%; width: 65%;">
+		<div class="text-wrap">
+			<div class="heart"></div>
+			<h2>Item Filtering</h2>
+		</div>
+	</div>
     
     
     <form action="http://127.0.0.1:5000/filter2" method="POST">
@@ -26,14 +33,14 @@
 
     
 
-        <div class="card" style="width: 170;; height: 220px; margin-bottom: 50px;" >
+        <div class="card" style="width: 170px;height: 220px;margin-bottom: 70px;" >
             <img  src="${vo.movie_picture}">
             <input class="checkbox"type="checkbox" value="${vo.movie_seq}" name="movie_name">
         </div>
         </c:forEach>
     </div>
           
-           <button type="submit" class="recosubmit">보내기</button>
+           <button type="submit" class="snip1535">보내기</button>
      
    </form>
     

@@ -7,24 +7,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import movie.model.MemberDAO;
+import movie.model.ReviewDAO;
 
-public class DeleteController implements Controller{
+public class MovieReviewDeleteController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-
-		int member_seq = Integer.parseInt("member_seq");
-		MemberDAO dao = new MemberDAO();
-		int cnt=dao.deleteMember(member_seq);
-		
-		// 형식상 보내기
+		int review_seq =Integer.parseInt(request.getParameter("review_seq"));
+		ReviewDAO dao =new ReviewDAO();
+		int cnt =dao.reviewDelete(review_seq);
 		PrintWriter out = response.getWriter();
-		out.print(cnt);
-		
+		out.println(cnt);
 		return null;
 	}
-
+ 
 }
