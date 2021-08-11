@@ -21,8 +21,6 @@
 
     	</insert>
     	
-
-   
     	<update id="updateMember" parameterType="memberVO">
 	    	update tbl_member set member_password = #{member_password}, member_name = #{member_name}, 
 	    	member_age = #{member_age}, member_gender = #{member_gender}, member_phone = #{member_phone}, member_genre = #{member_genre}
